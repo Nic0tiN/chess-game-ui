@@ -1,0 +1,23 @@
+<form #itemForm="ngForm" (ngSubmit)="onSubmit(itemForm)">
+  <label for="player1">Player 1</label>
+  <input type="text" id="player1" class="form-control" name="player1" ngModel #player1="ngModel" required />
+  <label for="player2">Player 2</label>
+  <input type="text" id="player2" class="form-control" name="player2" ngModel #player2="ngModel" required />
+  <button type="submit">Submit</button>
+</form>
+
+<div [hidden]="!itemForm.form.valid">
+  <p>{{ player1.value }} vs {{ player2.value }}</p>
+</div>
+
+<app-error
+  [hidden]="errorMessage === ''"
+  [message]="errorMessage"
+/>
+
+<app-board
+  [player1]="player1.value"
+  [player2]="player2.value"
+  [cells]="board.cells"
+  (move)="onMove($event)"
+/>

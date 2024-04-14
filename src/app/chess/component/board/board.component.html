@@ -1,0 +1,16 @@
+<p>Move {{ activeCells[0] }} to {{ activeCells[1] }}</p>
+<input
+  type="submit"
+  [disabled]="activeCells.length !== 2"
+  (click)="moveFigures(activeCells[0], activeCells[1])"
+  value="Déplacer"
+  />
+<div class="row" *ngFor="let row of Object.keys([8,7,6,5,4,3,2,1]).reverse()">
+    <app-cell *ngFor="let col of Object.keys([8,7,6,5,4,3,2,1])"
+      [position]="Position.toString(parseInt(col), parseInt(row))"
+      [figure]="getFigure(Position.toString(parseInt(col), parseInt(row)))"
+      [reversed]="(parseInt(row) % 2 === 0) ? parseInt(col) % 2 === 1 : parseInt(col) % 2 === 0"
+      [selected]="positionSelected(Position.toString(parseInt(col), parseInt(row)))"
+      (click)="onCellClicked($event)"
+    />
+</div>

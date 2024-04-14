@@ -1,0 +1,11 @@
+.row {
+  border: 1px solid #000;
+  display: flex;
+  flex: auto;
+  flex-wrap: wrap;
+}
+
+.break {
+  flex-basis: 100%;
+  height: 0;
+}

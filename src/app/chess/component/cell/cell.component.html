@@ -1,0 +1,19 @@
+<div [class]="{ 'cell': true, 'activated': selected, 'reversed': reversed }" (click)="onClick($event)">
+  <div class="position">{{ position }}</div>
+
+  <div class="figure">
+    <fa-icon *ngIf="figure?.color === FigureColor.WHITE && figure?.type === FigureType.BISHOP" [icon]="['far', 'chess-bishop']"></fa-icon>
+    <fa-icon *ngIf="figure?.color === FigureColor.WHITE && figure?.type === FigureType.KNIGHT" [icon]="['far', 'chess-knight']"></fa-icon>
+    <fa-icon *ngIf="figure?.color === FigureColor.WHITE && figure?.type === FigureType.QUEEN" [icon]="['far', 'chess-queen']"></fa-icon>
+    <fa-icon *ngIf="figure?.color === FigureColor.WHITE && figure?.type === FigureType.KING" [icon]="['far', 'chess-king']"></fa-icon>
+    <fa-icon *ngIf="figure?.color === FigureColor.WHITE && figure?.type === FigureType.ROOK" [icon]="['far', 'chess-rook']"></fa-icon>
+    <fa-icon *ngIf="figure?.color === FigureColor.WHITE && figure?.type === FigureType.PAWN" [icon]="['far', 'chess-pawn']"></fa-icon>
+
+    <fa-icon *ngIf="figure?.color === FigureColor.BLACK && figure?.type === FigureType.BISHOP" [icon]="['fas', 'chess-bishop']"></fa-icon>
+    <fa-icon *ngIf="figure?.color === FigureColor.BLACK && figure?.type === FigureType.KNIGHT" [icon]="['fas', 'chess-knight']"></fa-icon>
+    <fa-icon *ngIf="figure?.color === FigureColor.BLACK && figure?.type === FigureType.QUEEN" [icon]="['fas', 'chess-queen']"></fa-icon>
+    <fa-icon *ngIf="figure?.color === FigureColor.BLACK && figure?.type === FigureType.KING" [icon]="['fas', 'chess-king']"></fa-icon>
+    <fa-icon *ngIf="figure?.color === FigureColor.BLACK && figure?.type === FigureType.ROOK" [icon]="['fas', 'chess-rook']"></fa-icon>
+    <fa-icon *ngIf="figure?.color === FigureColor.BLACK && figure?.type === FigureType.PAWN" [icon]="['fas', 'chess-pawn']"></fa-icon>
+  </div>
+</div>
