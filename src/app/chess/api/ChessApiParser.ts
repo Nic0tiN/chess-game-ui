@@ -1,4 +1,4 @@
-import {HTTPBoard, HTTPCell} from "./api.response";
+import {HTTPBoard, HTTPCell} from "./api.responses";
 import {Board} from "../domain/board";
 import {Figure, FigureColor, FigureType} from "../domain/figure";
 

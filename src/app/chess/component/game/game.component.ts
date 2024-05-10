@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {BoardComponent} from "../board/board.component";
 import {FormsModule, NgForm} from "@angular/forms";
 import {JsonPipe} from "@angular/common";
@@ -20,7 +20,7 @@ import {ErrorComponent} from "../../../common/component/error/error.component";
   templateUrl: './game.component.html',
   styleUrl: './game.component.css'
 })
-export class GameComponent {
+export class GameComponent implements OnInit {
   constructor(private service: ChessApiService) {}
 
   board: Board = { cells: [] }
@@ -28,8 +28,14 @@ export class GameComponent {
 
   @ViewChild('itemForm', { static: false }) form!: NgForm;
 
+  ngOnInit() {
+    this.service.load()
+      .subscribe(board => this.board = board)
+  }
+
   onSubmit(itemForm: NgForm) {
-    this.service.init(itemForm.value.player1, itemForm.value.player2).subscribe(board => this.board = board)
+    this.service.init(itemForm.value.player1, itemForm.value.player2)
+      .subscribe(board => this.board = board)
   }
 
   onMove(move: Move) {

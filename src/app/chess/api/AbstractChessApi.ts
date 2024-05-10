@@ -4,6 +4,7 @@ import {Board} from "../domain/board";
 import {HttpErrorResponse} from "@angular/common/http";
 
 export abstract class AbstractChessApi {
+  abstract init(): Observable<Board>
   abstract start(player1: string, player2: string): Observable<Board>
   abstract move(move: Move): Observable<Board>
 

@@ -12,6 +12,12 @@ export class ChessApiService {
     private backend: AbstractChessApi
   ) { }
 
+  load () {
+    this.board$ = this.backend.init()
+
+    return this.board$
+  }
+
   init(player1: string, player2: string) {
     this.board$ = this.backend.start(player1, player2)
 

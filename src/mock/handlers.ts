@@ -1,5 +1,5 @@
 import {http, HttpResponse} from "msw";
-import {HTTPCommandMove} from "../app/chess/api/api.command";
+import {HTTPCommandMove} from "../app/chess/api/api.commands";
 
 export const handlers = [
   http.post('http://localhost:8080/play', async ({ request }) => {
